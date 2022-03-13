@@ -30,17 +30,10 @@ using ComponentArray = std::array<Component*, maxComponents>;
 class Component {
 public:
 	Entity* entity;
-	void virtual init() { }
-	void virtual update() {
-
-	}
-	void virtual draw() {
-
-	}
-
-	virtual ~Component() {
-
-	}
+	virtual void init() { }
+	virtual void update() { }
+	virtual void draw() { }
+	virtual ~Component() { }
 };
 
 class Entity {
@@ -53,19 +46,22 @@ private:
 public:
 	void update() {
 		for (auto& c: components) c ->update();
+	}
+	void draw() {
 		for (auto& c: components) c ->draw();
 	}
-	void draw() {}
 	bool isActive() const { return active; }
-	void destroy() { active = false; }
+	void destroy() { 
+		std::cout << active << std::endl;
+		active = false; 
+	}
 
 	template <typename T> bool hasComponent() const {
 		return componentBitSet[getComponentTypeId<T>()];
 	}
 
-	template <typename T, typename ... TArgs>
-	T& addComponent(TArgs&&... mArgs) {
-		T* c(new T(std::forward<TArgs>()(mArgs)...));
+	template <typename T, typename ... TArgs> T& addComponent(TArgs&&... mArgs) {
+		T* c(new T(std::forward<TArgs>(mArgs)...));
 		c->entity = this;
 		std::unique_ptr<Component> uPtr{ c };
 		components.emplace_back(std::move(uPtr));

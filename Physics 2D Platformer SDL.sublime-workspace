@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"get",
+				"getComponentTypeId"
+			],
+			[
+				"componentA",
+				"componentArray"
+			],
+			[
 				"SDL_RENDEE",
 				"SDL_RenderPresent"
 			],
@@ -73,6 +81,7 @@
 	},
 	"file_history":
 	[
+		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/src/Game.cpp",
 		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/src/GameObject.cpp",
 		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/src/TextureManager.cpp",
 		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/src/FrameRate.cpp",
@@ -133,7 +142,7 @@
 	],
 	"find":
 	{
-		"height": 39.0
+		"height": 27.0
 	},
 	"find_in_files":
 	{
@@ -147,6 +156,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"\t\n"
 		],
 		"highlight": true,
 		"in_selection": false,

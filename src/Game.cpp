@@ -1,21 +1,16 @@
 #include "Game.hpp"
 #include "TextureManager.hpp"
-#include "GameObject.hpp"
 #include "Map.hpp"
-#include "EntityComponentSystem.hpp"
 #include "Components.hpp"
+#include "Vector2D.hpp"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_Image.h>
 
-GameObject *player;
-GameObject *player2;
 Map* map;
-
+Manager manager;
 SDL_Renderer* Game::renderer = nullptr;
 
-Manager manager;
-auto& newPlayer(manager.addEntity());
-
+auto& player(manager.addEntity());
 
 Game::Game() {}
 
@@ -42,14 +37,11 @@ void Game::init(const char *title, int xPosition, int yPosition, int width, int 
 		}
 
 		isRunning = true;
-		player = new GameObject("res/gfx/MainCharacter.png", 0, 0);
-		player2 = new GameObject("res/gfx/MainCharacter.png", 60, 60);
-		map = new Map();
-		newPlayer.addComponent<PositionComponent>();
-		newPlayer.getComponent<PositionComponent>().setPosition(500,500);
-	} else {
-		isRunning = false;
 	}
+	map = new Map();
+
+	player.addComponent<TransformComponent>(0, 0);
+	player.addComponent<SpriteComponent>("res/gfx/MainCharacter.png");
 }
 
 void Game::handleEvents() {
@@ -65,17 +57,18 @@ void Game::handleEvents() {
 }
 
 void Game::update() {
-	player->update();
-	player2->update();
+	manager.refresh();
 	manager.update();
-	std::cout << newPlayer.getComponent<PositionComponent>().x() << "," << newPlayer.getComponent<PositionComponent>().y() << std::endl;
+	player.getComponent<TransformComponent>().position.add(Vector2D(5,0));
+	if (player.getComponent<TransformComponent>().position.x > 100) {
+		player.getComponent<SpriteComponent>().setTexture("res/gfx/grass.png");
+	}
 }
 
 void Game::render() {
 	SDL_RenderClear(Game::renderer);
 	map->DrawMap();
-	player->render();
-	player2->render();
+	manager.draw();
 	SDL_RenderPresent(Game::renderer);
 }
 
