@@ -3,11 +3,14 @@
 #include "Map.hpp"
 #include "Components.hpp"
 #include "Vector2D.hpp"
+#include "KeyBoardController.hpp"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_Image.h>
 
 Map* map;
 Manager manager;
+
+SDL_Event Game::event;
 SDL_Renderer* Game::renderer = nullptr;
 
 auto& player(manager.addEntity());
@@ -42,10 +45,10 @@ void Game::init(const char *title, int xPosition, int yPosition, int width, int 
 
 	player.addComponent<TransformComponent>(0, 0);
 	player.addComponent<SpriteComponent>("res/gfx/MainCharacter.png");
+	player.addComponent<KeyBoardController>();
 }
 
 void Game::handleEvents() {
-	SDL_Event event;
 	SDL_PollEvent(&event);
 	switch (event.type) {
 		case SDL_QUIT:
@@ -59,10 +62,6 @@ void Game::handleEvents() {
 void Game::update() {
 	manager.refresh();
 	manager.update();
-	player.getComponent<TransformComponent>().position.add(Vector2D(5,0));
-	if (player.getComponent<TransformComponent>().position.x > 100) {
-		player.getComponent<SpriteComponent>().setTexture("res/gfx/grass.png");
-	}
 }
 
 void Game::render() {

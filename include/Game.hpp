@@ -17,5 +17,6 @@ public:
 	void render();
 	void clean();
 	bool running();
+	static SDL_Event event;
 	static SDL_Renderer *renderer;
 };
