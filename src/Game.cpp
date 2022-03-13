@@ -4,6 +4,7 @@
 #include "Components.hpp"
 #include "Vector2D.hpp"
 #include "KeyBoardController.hpp"
+#include "Collision.hpp"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_Image.h>
 
@@ -14,6 +15,7 @@ SDL_Event Game::event;
 SDL_Renderer* Game::renderer = nullptr;
 
 auto& player(manager.addEntity());
+auto& wall(manager.addEntity());
 
 Game::Game() {}
 
@@ -43,9 +45,14 @@ void Game::init(const char *title, int xPosition, int yPosition, int width, int 
 	}
 	map = new Map();
 
-	player.addComponent<TransformComponent>(0, 0);
+	player.addComponent<TransformComponent>(2);
 	player.addComponent<SpriteComponent>("res/gfx/MainCharacter.png");
 	player.addComponent<KeyBoardController>();
+	player.addComponent<ColliderComponent>("player");
+	
+	wall.addComponent<TransformComponent>(300.0f, 300.0f, 300, 20, 1);
+	wall.addComponent<SpriteComponent>("res/gfx/dirty.png");
+	wall.addComponent<ColliderComponent>("wall");
 }
 
 void Game::handleEvents() {
@@ -62,6 +69,10 @@ void Game::handleEvents() {
 void Game::update() {
 	manager.refresh();
 	manager.update();
+	if (Collision::AABB(player.getComponent<ColliderComponent>().collider,
+		wall.getComponent<ColliderComponent>().collider)) {
+		std::cout << """" << std::endl;
+	}
 }
 
 void Game::render() {

@@ -81,9 +81,22 @@
 	},
 	"file_history":
 	[
+		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/include/EntityComponentSystem/TransformComponent.hpp",
 		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/src/Game.cpp",
-		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/src/GameObject.cpp",
+		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/include/EntityComponentSystem/EntityComponentSystem.hpp",
+		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/include/EntityComponentSystem/SpriteComponent.hpp",
+		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/include/EntityComponentSystem/Components.hpp",
+		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/bin/debug/main.exe",
+		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/Game.o",
+		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/TextureManager.o",
+		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/include/EntityComponentSystem/PositionComponent.hpp",
+		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/src/Map.cpp",
+		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/include/Game.hpp",
 		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/src/TextureManager.cpp",
+		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/include/TextureManager.hpp",
+		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/Physics 2D Platformer SDL.sublime-project",
+		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/Map.o",
+		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/src/GameObject.cpp",
 		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/src/FrameRate.cpp",
 		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/include/FrameRate.hpp",
 		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/01_hello_SDL/01_hello_SDL.cpp",
@@ -149,6 +162,7 @@
 		"height": 101.0,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
@@ -156,6 +170,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"PositionComponent",
+			"isActive",
+			"\tmEntity\n",
 			"\t\n"
 		],
 		"highlight": true,
@@ -164,6 +181,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"TransformComponent"
 		],
 		"reverse": false,
 		"scrollbar_highlights": true,

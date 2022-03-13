@@ -45,10 +45,10 @@ private:
 
 public:
 	void update() {
-		for (auto& c: components) c ->update();
+		for (auto& c: components) c->update();
 	}
 	void draw() {
-		for (auto& c: components) c ->draw();
+		for (auto& c: components) c->draw();
 	}
 	bool isActive() const { return active; }
 	void destroy() { 
