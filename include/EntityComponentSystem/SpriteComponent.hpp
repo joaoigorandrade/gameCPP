@@ -2,6 +2,7 @@
 
 #include "Components.hpp"
 #include "TextureManager.hpp"
+#include <iostream>
 #include "SDL2/SDL.h"
 
 class SpriteComponent: public Component {
@@ -25,11 +26,9 @@ public:
 
 	void init() override {
 		transform = &entity->getComponent<TransformComponent>();
-
 		sourceRectangule.x = sourceRectangule.y = 0;
 		sourceRectangule.w = transform->width;
 		sourceRectangule.h = transform->height;
-		
 	}
 
 	void update() override {

@@ -71,7 +71,6 @@ void Game::update() {
 	manager.update();
 	if (Collision::AABB(player.getComponent<ColliderComponent>().collider,
 		wall.getComponent<ColliderComponent>().collider)) {
-		std::cout << """" << std::endl;
 	}
 }
 

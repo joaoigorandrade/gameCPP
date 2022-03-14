@@ -1,5 +1,6 @@
 #pragma once
 #include "EntityComponentSystem.hpp"
+#include <iostream>
 #include "Vector2D.hpp"
 
 class TransformComponent : public Component {
@@ -22,7 +23,7 @@ public:
 		width = w;
 		scale = sc;
 	}
-	void init() override { position.x = position.y = velocity.x = velocity.y = 0.0f; }
+	void init() override { velocity.x = velocity.y = 0.0f; }
 	void update() override { 
 		position.x += velocity.x * speed;
 		position.y += velocity.y * speed;
