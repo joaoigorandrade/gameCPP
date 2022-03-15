@@ -3,10 +3,8 @@
 #include "Map.hpp"
 #include "Components.hpp"
 #include "Vector2D.hpp"
-#include "KeyBoardController.hpp"
 #include "Collision.hpp"
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_Image.h>
 
 Map* map;
 Manager manager;
@@ -14,8 +12,13 @@ Manager manager;
 SDL_Event Game::event;
 SDL_Renderer* Game::renderer = nullptr;
 
+std::vector <ColliderComponent*> Game::colliders;
+
 auto& player(manager.addEntity());
 auto& wall(manager.addEntity());
+auto& tile0(manager.addEntity());
+auto& tile1(manager.addEntity());
+auto& tile2(manager.addEntity());
 
 Game::Game() {}
 
@@ -45,6 +48,12 @@ void Game::init(const char *title, int xPosition, int yPosition, int width, int 
 	}
 	map = new Map();
 
+	tile0.addComponent<TileComponent>(200, 200, 32, 32, 0);
+	tile1.addComponent<TileComponent>(250, 250, 32, 32, 1);
+	tile1.addComponent<ColliderComponent>("dirty");
+	tile2.addComponent<TileComponent>(150, 150, 32, 32, 2);
+	tile2.addComponent<ColliderComponent>("grass");
+
 	player.addComponent<TransformComponent>(2);
 	player.addComponent<SpriteComponent>("res/gfx/MainCharacter.png");
 	player.addComponent<KeyBoardController>();
@@ -69,14 +78,15 @@ void Game::handleEvents() {
 void Game::update() {
 	manager.refresh();
 	manager.update();
-	if (Collision::AABB(player.getComponent<ColliderComponent>().collider,
-		wall.getComponent<ColliderComponent>().collider)) {
+
+	for (auto cc: colliders) {
+		Collision::AABB(player.getComponent<ColliderComponent>(), *cc);
 	}
 }
 
 void Game::render() {
 	SDL_RenderClear(Game::renderer);
-	map->DrawMap();
+	//map->DrawMap();
 	manager.draw();
 	SDL_RenderPresent(Game::renderer);
 }
@@ -90,4 +100,9 @@ void Game::clean() {
 
 bool Game::running() {
 	return isRunning;
+}
+
+void Game::addTile(int id, int x, int y) {
+	auto& tile(manager.addEntity());
+	tile.addComponent<TileComponent>(x, y, 32, 32, id);
 }

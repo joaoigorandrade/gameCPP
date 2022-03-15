@@ -3,7 +3,8 @@
 #include <string>
 
 #include "SDL2/SDL.h"
-#include "Components.hpp"
+#include "TransformComponent.hpp"
+#include "Game.hpp"
 
 class ColliderComponent : public Component {
 public:
@@ -19,6 +20,7 @@ public:
 			entity->addComponent<TransformComponent>();
 		}
 		transform = &entity->getComponent<TransformComponent>();
+		Game::colliders.push_back(this);
 	}
 
 	void update() override {

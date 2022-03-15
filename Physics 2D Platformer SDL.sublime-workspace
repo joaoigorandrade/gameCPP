@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"rect",
+				"rectanguleA"
+			],
+			[
+				"rec",
+				"rectanguleB"
+			],
+			[
 				"get",
 				"getComponentTypeId"
 			],
@@ -81,18 +89,21 @@
 	},
 	"file_history":
 	[
-		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/include/EntityComponentSystem/TransformComponent.hpp",
-		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/src/Game.cpp",
 		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/include/EntityComponentSystem/EntityComponentSystem.hpp",
-		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/include/EntityComponentSystem/SpriteComponent.hpp",
+		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/src/Collision.cpp",
+		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/src/TextureManager.cpp",
+		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/include/EntityComponentSystem/TransformComponent.hpp",
+		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/include/EntityComponentSystem/ColliderComponent.hpp",
+		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/src/Game.cpp",
+		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/include/Collision.hpp",
 		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/include/EntityComponentSystem/Components.hpp",
+		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/include/EntityComponentSystem/SpriteComponent.hpp",
+		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/src/Map.cpp",
 		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/bin/debug/main.exe",
 		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/Game.o",
 		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/TextureManager.o",
 		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/include/EntityComponentSystem/PositionComponent.hpp",
-		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/src/Map.cpp",
 		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/include/Game.hpp",
-		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/src/TextureManager.cpp",
 		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/include/TextureManager.hpp",
 		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/Physics 2D Platformer SDL.sublime-project",
 		"/C/Users/joaoi/OneDrive/Documentos/Programaçao/C++/SDL2-Tutorial/Map.o",

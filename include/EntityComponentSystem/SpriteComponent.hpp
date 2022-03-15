@@ -1,6 +1,6 @@
 #pragma once 
 
-#include "Components.hpp"
+#include "TransformComponent.hpp"
 #include "TextureManager.hpp"
 #include <iostream>
 #include "SDL2/SDL.h"
