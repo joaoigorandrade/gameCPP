@@ -4,6 +4,7 @@
 #include "TransformComponent.hpp"
 #include "SpriteComponent.hpp"
 #include <SDL2/SDL.h>
+#include <iostream>
 
 class TileComponent: public Component {
 public: 
@@ -22,13 +23,13 @@ public:
 		tileRectangule.w = w;
 		tileRectangule.h = h;
 		tileID = id;
-
+		
 		switch (tileID) {
 			case 0:
-			path = "res/gfx/water.png";
+			path = "res/gfx/dirty.png";
 			break;
 			case 1:
-			path = "res/gfx/dirty.png";
+			path = "res/gfx/water.png";
 			break;
 			case 2:
 			path = "res/gfx/grass.png";
