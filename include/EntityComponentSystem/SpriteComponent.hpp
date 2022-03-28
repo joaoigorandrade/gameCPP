@@ -2,6 +2,8 @@
 
 #include "TransformComponent.hpp"
 #include "TextureManager.hpp"
+#include "AnimationComponent.hpp"
+#include <map>
 #include <iostream>
 #include "SDL2/SDL.h"
 
@@ -16,15 +18,25 @@ private:
 	int speed = 100;
 
 public:
+	int animatedIndex = 0;
+	std::map<const char*, Animation> animations;
+
+	SDL_RendererFlip spriteFlip = SDL_FLIP_NONE;
+
 	SpriteComponent() = default;
 	SpriteComponent(const char* path) {
 		setTexture(path);
 	}
 
-	SpriteComponent(const char* path, int nFrames, int nSpeed) {
-		animated = true;
-		frames = nFrames;
-		speed = nSpeed;
+	SpriteComponent(const char* path, bool isAnimated) {
+		animated = isAnimated;
+		Animation idle = Animation(0, 3, 100);
+		Animation walk = Animation(1, 8, 100);
+
+		animations.emplace("Idle", idle);
+		animations.emplace("Walk", walk);
+		
+		Play("Idle");
 		setTexture(path);
 	}
 
@@ -47,6 +59,9 @@ public:
 		if(animated) {
 			sourceRectangule.x = sourceRectangule.w * static_cast<int>((SDL_GetTicks()/speed)%frames);
 		}
+
+		sourceRectangule.y = animatedIndex * transform->height;
+
 		destinationRectangule.x = (int)transform->position.x;
 		destinationRectangule.y = (int)transform->position.y;
 		destinationRectangule.w = transform->width * transform->scale;
@@ -54,6 +69,12 @@ public:
 	}
 
 	void draw() override {
-		TextureManager::Draw(texture, sourceRectangule, destinationRectangule);
+		TextureManager::Draw(texture, sourceRectangule, destinationRectangule, spriteFlip);
+	}
+
+	void Play(const char* animationName) {
+		frames = animations[animationName].frames;
+		animatedIndex = animations[animationName].index;
+		speed = animations[animationName].speed;
 	}
 };

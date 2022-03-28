@@ -55,7 +55,7 @@ void Game::init(const char *title, int xPosition, int yPosition, int width, int 
 	Map::LoadMap("res/gfx/Map.map", 32, 32);
 
 	player.addComponent<TransformComponent>(2);
-	player.addComponent<SpriteComponent>("res/gfx/animatedPlayer.png", 4, 100);
+	player.addComponent<SpriteComponent>("res/gfx/animatedEnimie.png", true);
 	player.addComponent<KeyBoardController>();
 	player.addComponent<ColliderComponent>("player");
 	player.addGroup(groupPlayers);
