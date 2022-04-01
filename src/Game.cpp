@@ -16,6 +16,7 @@ std::vector <ColliderComponent*> Game::colliders;
 
 auto& player(manager.addEntity());
 auto& wall(manager.addEntity());
+const char* mapFile = "res/gfx/terrain_ss.png";
 
 enum GroupLabels : std::size_t {
 	groupMap,
@@ -52,7 +53,7 @@ void Game::init(const char *title, int xPosition, int yPosition, int width, int 
 	}
 	map = new Map();
 
-	Map::LoadMap("res/gfx/Map.map", 32, 32);
+	Map::LoadMap("res/gfx/newMap.map", 25, 20);
 
 	player.addComponent<TransformComponent>(2);
 	player.addComponent<SpriteComponent>("res/gfx/animatedEnimie.png", true);
@@ -111,8 +112,8 @@ bool Game::running() {
 	return isRunning;
 }
 
-void Game::addTile(int id, int x, int y) {
+void Game::addTile(int sourceX, int sourceY, int xPosition, int yPosition) {
 	auto& tile(manager.addEntity());
-	tile.addComponent<TileComponent>(x, y, 32, 32, id);
+	tile.addComponent<TileComponent>(sourceX, sourceY, xPosition, yPosition, mapFile);
 	tile.addGroup(groupMap);
 }

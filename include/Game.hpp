@@ -21,7 +21,7 @@ public:
 	void clean();
 	bool running();
 
-	static void addTile(int id, int x, int y);
+	static void addTile(int sourceX, int sourceY, int xPosition, int yPosition);
 	static SDL_Event event;
 	static SDL_Renderer *renderer;
 	static std::vector<ColliderComponent*> colliders;
