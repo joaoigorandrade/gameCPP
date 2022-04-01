@@ -13,7 +13,11 @@ public:
 	int width  = 32;
 	int scale  = 1;
 	int speed  = 3;
-	TransformComponent(int sc) { scale = sc; }
+	TransformComponent(int sc) { 
+		position.x = 400;
+		position.y = 320;
+		scale = sc;
+	}
 	TransformComponent() { position.x = 0.0f; position.y = 0.0f; }
 	TransformComponent(float x, float y) { position.x = x; position.y = y; }
 	TransformComponent(float x, float y, int h, int w, int sc) {
@@ -25,7 +29,5 @@ public:
 	}
 	void init() override { velocity.x = velocity.y = 0.0f; }
 	void update() override { 
-		position.x += velocity.x * speed;
-		position.y += velocity.y * speed;
 	}
 };

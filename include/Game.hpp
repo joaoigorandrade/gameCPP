@@ -8,7 +8,6 @@ class ColliderComponent;
 
 class Game {
 private:
-	bool isRunning;
 	SDL_Window *window;
 	int counter = 0;
 public:
@@ -25,5 +24,5 @@ public:
 	static SDL_Event event;
 	static SDL_Renderer *renderer;
 	static std::vector<ColliderComponent*> colliders;
-
+	static bool isRunning;
 };

@@ -13,6 +13,7 @@ SDL_Event Game::event;
 SDL_Renderer* Game::renderer = nullptr;
 
 std::vector <ColliderComponent*> Game::colliders;
+bool Game::isRunning = false;
 
 auto& player(manager.addEntity());
 auto& wall(manager.addEntity());
@@ -24,6 +25,10 @@ enum GroupLabels : std::size_t {
 	groupEnemies,
 	groupColliders
 };
+
+auto& tiles(manager.getGroup(groupMap));
+auto& players(manager.getGroup(groupPlayers));
+auto& enemies(manager.getGroup(groupEnemies));
 
 Game::Game() {}
 
@@ -77,14 +82,15 @@ void Game::update() {
 	manager.refresh();
 	manager.update();
 
-	for (auto cc: colliders) {
-		Collision::AABB(player.getComponent<ColliderComponent>(), *cc);
+
+	Vector2D playerVelocity = player.getComponent<TransformComponent>().velocity;
+	int playerSpeed = player.getComponent<TransformComponent>().speed;
+
+	for (auto t: tiles) {
+		t->getComponent<TileComponent>().destinationRectangule.x += -(playerVelocity.x * playerSpeed);
+		t->getComponent<TileComponent>().destinationRectangule.y += -(playerVelocity.y * playerSpeed);
 	}
 }
-
-auto& tiles(manager.getGroup(groupMap));
-auto& players(manager.getGroup(groupPlayers));
-auto& enemies(manager.getGroup(groupEnemies));
 
 void Game::render() {
 	SDL_RenderClear(Game::renderer);

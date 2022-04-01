@@ -22,7 +22,7 @@ public:
 		
 		destinationRectangule.x = xPosition;
 		destinationRectangule.y = yPosition;
-		destinationRectangule.w = destinationRectangule.h = 32;
+		destinationRectangule.w = destinationRectangule.h = 64;
 
 	}
 

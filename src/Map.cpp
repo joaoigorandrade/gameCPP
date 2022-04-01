@@ -23,8 +23,7 @@ void Map::LoadMap(std::string path, int sizeX, int sizeY) {
 			sourceY = atoi(&c) * 32;
 			mapFile.get(c);
 			sourceX = atoi(&c) * 32;
-			std::cout << sourceX / 32 << ", " << sourceY / 32 << " ," << x * 32 << " ," << y * 32 << std::endl;
-			Game::addTile(sourceX, sourceY, x * 32, y * 32);
+			Game::addTile(sourceX, sourceY, x * 64, y * 64);
 			mapFile.ignore();
 		}
 	}
