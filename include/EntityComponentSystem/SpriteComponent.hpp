@@ -62,8 +62,8 @@ public:
 
 		sourceRectangule.y = animatedIndex * transform->height;
 
-		destinationRectangule.x = (int)transform->position.x;
-		destinationRectangule.y = (int)transform->position.y;
+		destinationRectangule.x = (int)transform->position.x - Game::camera.x;
+		destinationRectangule.y = (int)transform->position.y - Game::camera.y;
 		destinationRectangule.w = transform->width * transform->scale;
 		destinationRectangule.h = transform->height * transform->scale;
 	}

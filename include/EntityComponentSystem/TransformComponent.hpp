@@ -29,5 +29,7 @@ public:
 	}
 	void init() override { velocity.x = velocity.y = 0.0f; }
 	void update() override { 
+		position.x += velocity.x * speed;
+		position.y += velocity.y * speed;
 	}
 };
